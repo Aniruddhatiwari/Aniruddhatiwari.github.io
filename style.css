@@ -245,7 +245,7 @@ h1 {
   height: min(77vh, 820px);
   min-height: 650px;
   overflow: auto;
-  background: #eef1f5;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -255,7 +255,6 @@ h1 {
 #pdfCanvas {
   display: block;
   background: white;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, .13);
   max-width: none;
   height: auto;
 }
