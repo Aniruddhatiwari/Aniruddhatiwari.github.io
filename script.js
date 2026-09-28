@@ -86,7 +86,7 @@ window.addEventListener("resize", () => {
 });
 
 try {
-  pdfDoc = await pdfjsLib.getDocument("assets/resume.pdf").promise;
+  pdfDoc = await pdfjsLib.getDocument("assets/Aniruddha Tiwari Resume.pdf").promise;
   pageInfo.textContent = `1 / ${pdfDoc.numPages}`;
   await renderPage(1);
 } catch (error) {
