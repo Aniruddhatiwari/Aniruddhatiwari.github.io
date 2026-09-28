@@ -19,13 +19,27 @@ let pendingPage = null;
 
 async function renderPage(num) {
   rendering = true;
+
   const page = await pdfDoc.getPage(num);
   const viewport = page.getViewport({ scale });
 
-  canvas.width = viewport.width;
-  canvas.height = viewport.height;
+  // Render at the device's native pixel density so PDF text stays sharp.
+  const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2.5);
 
-  await page.render({ canvasContext: ctx, viewport }).promise;
+  canvas.width = Math.floor(viewport.width * devicePixelRatio);
+  canvas.height = Math.floor(viewport.height * devicePixelRatio);
+
+  // Keep the displayed size at the requested CSS zoom level.
+  canvas.style.width = `${Math.floor(viewport.width)}px`;
+  canvas.style.height = `${Math.floor(viewport.height)}px`;
+
+  const renderContext = {
+    canvasContext: ctx,
+    viewport,
+    transform: [devicePixelRatio, 0, 0, devicePixelRatio, 0, 0]
+  };
+
+  await page.render(renderContext).promise;
 
   pageInfo.textContent = `${pageNum} / ${pdfDoc.numPages}`;
   zoomInfo.textContent = `${Math.round(scale * 100)}%`;
@@ -40,6 +54,7 @@ async function renderPage(num) {
 
 function queuePage(num) {
   if (!pdfDoc || num < 1 || num > pdfDoc.numPages) return;
+
   if (rendering) {
     pendingPage = num;
   } else {
@@ -48,8 +63,13 @@ function queuePage(num) {
   }
 }
 
-document.getElementById("prevPage").addEventListener("click", () => queuePage(pageNum - 1));
-document.getElementById("nextPage").addEventListener("click", () => queuePage(pageNum + 1));
+document.getElementById("prevPage").addEventListener("click", () => {
+  queuePage(pageNum - 1);
+});
+
+document.getElementById("nextPage").addEventListener("click", () => {
+  queuePage(pageNum + 1);
+});
 
 document.getElementById("zoomIn").addEventListener("click", () => {
   scale = Math.min(2.5, scale + 0.1);
@@ -59,6 +79,10 @@ document.getElementById("zoomIn").addEventListener("click", () => {
 document.getElementById("zoomOut").addEventListener("click", () => {
   scale = Math.max(0.5, scale - 0.1);
   renderPage(pageNum);
+});
+
+window.addEventListener("resize", () => {
+  if (pdfDoc && !rendering) renderPage(pageNum);
 });
 
 try {
