@@ -5,346 +5,872 @@
   --line: #dbe2ee;
   --soft: #f7f9fc;
   --white: #ffffff;
-  --shadow: 0 24px 70px rgba(23, 39, 92, 0.10);
+
+  --shadow:
+    0 24px 70px rgba(23, 39, 92, 0.10);
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
+
   background: #f4f6fa;
+
   color: #17213c;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
 
-a { color: inherit; }
-button, a { -webkit-tap-highlight-color: transparent; }
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
 
 .page-shell {
-  width: min(1540px, calc(100% - 36px));
+
+  width: min(
+    1540px,
+    calc(100% - 36px)
+  );
+
   margin: 28px auto;
+
   background: var(--white);
+
   border: 1.5px solid var(--navy);
+
   border-radius: 28px;
+
   overflow: hidden;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
+
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(520px, 1.14fr);
+
+  grid-template-columns:
+    minmax(0, 0.86fr)
+    minmax(520px, 1.14fr);
+
   gap: 70px;
-  padding: 52px 58px 62px;
+
+  padding:
+    52px
+    58px
+    62px;
 }
 
-.intro { padding: 10px 8px 0 18px; }
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.intro {
+  padding:
+    10px
+    8px
+    0
+    18px;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
 
 .topbar {
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   margin-bottom: 68px;
 }
 
-.eyebrow, .label {
+
+.eyebrow,
+.label {
+
   letter-spacing: .19em;
+
   font-size: 14px;
+
   font-weight: 500;
+
   color: #54709d;
 }
 
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
 .socials {
+
   display: flex;
+
   gap: 10px;
 }
 
+
 .socials a {
+
   width: 50px;
+
   height: 50px;
-  border: 1px solid #cbd6e8;
+
+  border:
+    1px solid
+    #cbd6e8;
+
   border-radius: 12px;
+
   display: grid;
+
   place-items: center;
+
   text-decoration: none;
+
   color: var(--navy);
+
   font-weight: 700;
-  transition: .2s ease;
+
+  transition:
+    0.2s ease;
 }
+
 
 .socials a:hover {
+
   background: var(--navy);
+
   color: white;
-  transform: translateY(-2px);
+
+  transform:
+    translateY(-2px);
 }
 
+
+/* =========================
+   HEADLINE
+========================= */
+
 h1 {
+
   margin: 0;
+
   color: var(--navy);
-  font-size: clamp(52px, 5.4vw, 84px);
+
+  font-size:
+    clamp(
+      52px,
+      5.4vw,
+      84px
+    );
+
   line-height: .98;
+
   letter-spacing: -.055em;
+
   font-weight: 800;
 }
 
+
 .availability {
+
   color: #53627e;
+
   font-size: 19px;
-  margin: 28px 0 58px;
+
+  margin:
+    28px
+    0
+    58px;
 }
+
+
+/* =========================
+   INFO BLOCKS
+========================= */
 
 .info-block {
-  padding: 0 0 25px;
+
+  padding-bottom: 25px;
+
   margin-bottom: 29px;
-  border-bottom: 1px solid var(--line);
+
+  border-bottom:
+    1px solid
+    var(--line);
 }
 
+
 .info-block p {
+
   max-width: 650px;
+
   font-size: 18px;
+
   line-height: 1.65;
-  margin: 14px 0 0;
+
+  margin:
+    14px
+    0
+    0;
+
   color: #263552;
 }
 
-.focus { font-size: 21px !important; }
+
+.focus {
+
+  font-size:
+    21px !important;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
 
 .skills {
+
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 10px;
+
   margin-top: 17px;
 }
 
+
 .skills span {
-  padding: 10px 17px;
-  border: 1px solid #cad5e7;
+
+  padding:
+    10px
+    17px;
+
+  border:
+    1px solid
+    #cad5e7;
+
   border-radius: 999px;
+
   color: #243b6d;
+
   background: #fff;
+
   font-size: 14px;
+
   font-weight: 500;
 }
 
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
 .actions {
+
   display: flex;
+
   gap: 12px;
+
   margin-top: 30px;
+
   flex-wrap: wrap;
 }
 
-.primary-btn, .secondary-btn {
-  padding: 15px 22px;
+
+.primary-btn,
+.secondary-btn {
+
+  padding:
+    15px
+    22px;
+
   border-radius: 12px;
+
   text-decoration: none;
+
   font-weight: 600;
 }
 
+
 .primary-btn {
+
   background: var(--navy);
+
   color: white;
-  box-shadow: 0 12px 25px rgba(23, 39, 92, .17);
+
+  box-shadow:
+    0 12px 25px
+    rgba(23, 39, 92, .17);
 }
 
-.primary-btn span { margin-right: 8px; }
+
+.primary-btn span {
+
+  margin-right: 8px;
+}
+
+
 .secondary-btn {
-  border: 1px solid #cbd6e8;
+
+  border:
+    1px solid
+    #cbd6e8;
+
   color: var(--navy);
 }
 
+
+/* =========================
+   RESUME CARD
+========================= */
+
 .resume-card {
+
   min-width: 0;
-  border: 1.5px solid #273962;
+
+  border:
+    1.5px solid
+    #273962;
+
   border-radius: 20px;
+
   overflow: hidden;
+
   background: #fbfcfe;
+
   box-shadow: var(--shadow);
+
   align-self: start;
 }
 
+
+/* =========================
+   RESUME HEADER
+========================= */
+
 .viewer-header {
+
   min-height: 88px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   gap: 18px;
-  padding: 18px 22px;
-  border-bottom: 1px solid #dce3ee;
+
+  padding:
+    18px
+    22px;
+
+  border-bottom:
+    1px solid
+    #dce3ee;
+
   background: white;
 }
 
+
 .viewer-header h2 {
+
   margin: 0;
+
   font-size: 22px;
+
   color: var(--navy);
 }
 
+
 .viewer-header p {
-  margin: 4px 0 0;
+
+  margin:
+    4px
+    0
+    0;
+
   font-size: 13px;
+
   color: #687793;
 }
 
+
+/* =========================
+   RESUME CONTROLS
+========================= */
+
 .viewer-controls {
+
   display: flex;
+
   align-items: center;
+
   gap: 7px;
 }
 
-.viewer-controls button,
+
 .viewer-controls a {
+
   width: 40px;
+
   height: 40px;
+
   display: grid;
+
   place-items: center;
-  border: 1px solid #d5deeb;
+
+  border:
+    1px solid
+    #d5deeb;
+
   border-radius: 10px;
+
   background: white;
+
   color: var(--navy);
+
   text-decoration: none;
+
   font: inherit;
+
   cursor: pointer;
 }
 
-.viewer-controls button:hover,
+
 .viewer-controls a:hover {
+
   background: #f2f5fa;
 }
 
-#pageInfo, #zoomInfo {
-  min-width: 44px;
-  text-align: center;
-  font-size: 13px;
-  color: #455571;
-}
+
+/* =========================
+   PDF AREA
+========================= */
 
 .pdf-stage {
-  height: min(77vh, 820px);
+
+  height:
+    min(
+      77vh,
+      820px
+    );
+
   min-height: 650px;
+
   overflow: auto;
+
   background: #eef1f5;
+
   display: flex;
+
   justify-content: center;
+
   align-items: flex-start;
+
   padding: 22px;
 }
 
-#pdfCanvas {
+
+/*
+   IMPORTANT:
+
+   This uses the browser's native PDF
+   renderer rather than PDF.js canvas.
+
+   Therefore the original PDF's vector
+   text remains sharp.
+*/
+
+.native-pdf-stage {
+
+  padding: 0;
+
   display: block;
-  background: white;
-  box-shadow: 0 4px 18px rgba(0,0,0,.13);
-  max-width: none;
+
+  overflow: hidden;
+
+  background: #eef1f5;
 }
 
-.pdf-error {
-  padding: 30px;
-  color: #52617d;
-  text-align: center;
+
+.native-pdf {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 650px;
+
+  border: 0;
+
+  background: white;
 }
+
+
+/* =========================
+   EXPERIENCE SECTION
+========================= */
 
 .details {
-  padding: 72px 76px;
-  border-top: 1px solid var(--line);
+
+  padding:
+    72px
+    76px;
+
+  border-top:
+    1px solid
+    var(--line);
+
   background: #fbfcfe;
 }
 
+
 .detail-heading {
+
   max-width: 760px;
+
   margin-bottom: 36px;
 }
 
+
 .detail-heading h2 {
+
   color: var(--navy);
-  font-size: clamp(30px, 4vw, 48px);
+
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      48px
+    );
+
   letter-spacing: -.04em;
+
   line-height: 1.1;
-  margin: 15px 0 0;
+
+  margin:
+    15px
+    0
+    0;
 }
+
+
+/* =========================
+   EXPERIENCE CARD
+========================= */
 
 .experience-card {
+
   background: white;
-  border: 1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius: 18px;
+
   padding: 30px;
-  box-shadow: 0 12px 35px rgba(23,39,92,.05);
+
+  box-shadow:
+    0 12px 35px
+    rgba(23,39,92,.05);
 }
 
+
 .experience-card > div:first-child {
+
   display: flex;
+
   justify-content: space-between;
+
   gap: 20px;
+
   align-items: baseline;
 }
 
+
 .experience-card h3 {
+
   color: var(--navy);
+
   margin: 0;
+
   font-size: 22px;
 }
 
-.experience-card p { color: #66748f; }
-.date { color: #65748f; font-size: 14px; white-space: nowrap; }
+
+.experience-card p {
+
+  color: #66748f;
+}
+
+
+.date {
+
+  color: #65748f;
+
+  font-size: 14px;
+
+  white-space: nowrap;
+}
+
 
 .experience-card ul {
+
   padding-left: 20px;
+
   line-height: 1.7;
+
   color: #34415d;
 }
 
+
+/* =========================
+   TWO COLUMN SECTION
+========================= */
+
 .two-col {
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
   gap: 70px;
 }
 
-.simple-list { margin-top: 17px; color: #34415d; line-height: 1.6; }
+
+.simple-list {
+
+  margin-top: 17px;
+
+  color: #34415d;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-  padding: 26px 58px;
+
+  padding:
+    26px
+    58px;
+
   display: flex;
+
   justify-content: space-between;
+
   gap: 20px;
+
   color: #62708b;
+
   font-size: 13px;
-  border-top: 1px solid var(--line);
+
+  border-top:
+    1px solid
+    var(--line);
 }
 
-footer a { color: var(--navy); text-decoration: none; }
+
+footer a {
+
+  color: var(--navy);
+
+  text-decoration: none;
+}
+
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 1100px) {
+
   .hero {
+
     grid-template-columns: 1fr;
+
     gap: 45px;
   }
-  .resume-card { width: 100%; }
-  .pdf-stage { height: 80vh; }
+
+
+  .resume-card {
+
+    width: 100%;
+  }
+
+
+  .pdf-stage {
+
+    height: 80vh;
+  }
+
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 700px) {
+
   .page-shell {
+
     width: 100%;
+
     margin: 0;
+
     border-radius: 0;
+
     border-left: 0;
+
     border-right: 0;
   }
-  .hero { padding: 32px 22px 42px; }
-  .intro { padding: 0; }
-  .topbar { margin-bottom: 50px; }
-  .socials a { width: 42px; height: 42px; }
+
+
+  .hero {
+
+    padding:
+      32px
+      22px
+      42px;
+  }
+
+
+  .intro {
+
+    padding: 0;
+  }
+
+
+  .topbar {
+
+    margin-bottom: 50px;
+  }
+
+
+  .socials a {
+
+    width: 42px;
+
+    height: 42px;
+  }
+
+
   .viewer-header {
+
     align-items: flex-start;
+
     flex-direction: column;
   }
-  .viewer-controls { width: 100%; overflow-x: auto; }
+
+
+  .viewer-controls {
+
+    width: 100%;
+
+    overflow-x: auto;
+  }
+
+
   .pdf-stage {
+
     min-height: 560px;
-    padding: 12px;
+
+    padding: 0;
   }
-  .details { padding: 52px 22px; }
-  .two-col { grid-template-columns: 1fr; gap: 42px; }
-  .experience-card > div:first-child { display: block; }
-  .date { display: block; margin-top: 8px; }
+
+
+  .native-pdf {
+
+    min-height: 560px;
+  }
+
+
+  .details {
+
+    padding:
+      52px
+      22px;
+  }
+
+
+  .two-col {
+
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+
+  .experience-card > div:first-child {
+
+    display: block;
+  }
+
+
+  .date {
+
+    display: block;
+
+    margin-top: 8px;
+  }
+
+
   footer {
-    padding: 24px 22px;
+
+    padding:
+      24px
+      22px;
+
     flex-direction: column;
   }
+
 }
